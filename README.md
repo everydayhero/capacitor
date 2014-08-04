@@ -5,6 +5,16 @@ Flux store, and dispatcher.
 ## Example Usage
 
 ```js
+npm install react-capacitor
+
+...
+
+// Or in packagae
+
+"react-capacitor": "~0.0.3",
+```
+
+```js
 var Dispatcher = require('capacitor/lib/Dispatcher');
 var AppDispatcher = new Dispatcher();
 ```
