@@ -1,4 +1,4 @@
-# capacitor
+# react-capacitor
 
 Flux store, and dispatcher.
 
@@ -15,7 +15,7 @@ npm install react-capacitor
 ```
 
 ```js
-var Dispatcher = require('capacitor/lib/Dispatcher');
+var Dispatcher = require('react-capacitor/lib/Dispatcher');
 var AppDispatcher = new Dispatcher();
 ```
 
@@ -41,7 +41,7 @@ AppDispatcher.onAction('signup', function(data) {
 ### Create a store and set the default
 
 ```js
-var Store = require('capacitor/lib/Store');
+var Store = require('react-capacitor/lib/Store');
 
 var UserStore = new Store({
   email: '',
