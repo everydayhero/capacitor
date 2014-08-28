@@ -11,7 +11,7 @@ npm install react-capacitor
 
 // Or in packagae
 
-"react-capacitor": "~0.0.3",
+"react-capacitor": "~0.0.5",
 ```
 
 ```js
@@ -32,9 +32,11 @@ AppDispatcher.triggerAction('signup', {
 
 ```js
 AppDispatcher.onAction('signup', function(data) {
-  UserStore.set('email', data.email);
-  UserStore.set('name', data.name);
-  UserStore.emit('change');
+  UserStore.setProperties({
+    email: data.email,
+    name: data.name
+  });
+  // automatically emits the change event, but only when the data is different
 });
 ```
 
@@ -44,6 +46,7 @@ AppDispatcher.onAction('signup', function(data) {
 var Store = require('react-capacitor/lib/Store');
 
 var UserStore = new Store({
+  // Default values
   email: '',
   name: ''
 });
@@ -52,18 +55,29 @@ var UserStore = new Store({
 ###Managing the store
 
 ```js
+// Set a single value
 UserStore.set('email', 'marty.mcfly@1985.com');
 
-UserStore.reset();
+// Set multiple values
+UserStore.setProperties({name: 'Marty McFly', car: 'Delorean'});
 
-UserStore.emit('change');
+// Reset and set multiple values
+UserStore.setAll({name: 'Doc Brown'});
+
+// Reset values
+UserStore.reset();
 ```
 
-###Gettting store data
+###Getting store data
 
 ```js
+// Get a single value
 UserStore.get('email');
 
+// Get multiple values
+UserStore.getProperties('email', 'name');
+
+// Get all values
 UserStore.getAll();
 ```
 
@@ -72,13 +86,14 @@ UserStore.getAll();
 ```js
 ...
 
-  componentWillUnmount: function() {
-    UserStore.on('change', this._change);
-  },
+componentWillUnmount: function() {
+  UserStore.on('change', this._change);
+},
 
-  componentWillUnmount: function() {
-    UserStore.removeListener('change', this._change);
-  },
+componentWillUnmount: function() {
+  UserStore.removeListener('change', this._change);
+},
 
 ...
 ```
+
