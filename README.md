@@ -5,13 +5,7 @@ Flux store, and dispatcher.
 ## Example Usage
 
 ```js
-npm install react-capacitor
-
-...
-
-// Or in packagae
-
-"react-capacitor": "~0.0.5",
+npm install --save react-capacitor
 ```
 
 ```js

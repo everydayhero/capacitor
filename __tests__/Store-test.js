@@ -55,6 +55,22 @@ describe('Store', function() {
     expect(objectStore.getAll()).toEqual({foo: 'foo', bar: 'foo', baz: 'baz'});
   });
 
+  it('emits change event when setting all values', function() {
+    var listener = jest.genMockFunction();
+    objectStore.on('change', listener);
+    objectStore.setAll({foo: 'foo'});
+
+    expect(listener).toBeCalled();
+  });
+
+  it('emits change event when setting all values with an empty object', function() {
+    var listener = jest.genMockFunction();
+    objectStore.on('change', listener);
+    objectStore.setAll({});
+
+    expect(listener).toBeCalled();
+  });
+
   it('can iterate over all store items with forEach', function() {
     var all = {};
     objectStore.forEach(function(key, value) {
