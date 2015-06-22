@@ -1,6 +1,6 @@
 {
   "name": "react-capacitor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Flux boilerplate – stores, and dispatcher.",
   "scripts": {
     "test": "node_modules/.bin/jest"
@@ -13,9 +13,9 @@
   "license": "MIT",
   "devDependencies": {
     "lodash": "^2.4.1",
-    "react": "~0.10.0",
+    "react": "~0.13.0",
     "browserify": "^4.2.0",
     "es6-promise": "~1.0.0",
-    "jest-cli": "^0.1.17"
+    "jest-cli": "^0.4.0"
   }
 }
