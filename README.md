@@ -80,7 +80,7 @@ UserStore.getAll();
 ```js
 ...
 
-componentWillUnmount: function() {
+componentWillMount: function() {
   UserStore.on('change', this._change);
 },
 
