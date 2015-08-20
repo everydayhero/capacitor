@@ -49,17 +49,23 @@ var UserStore = new Store({
 ###Managing the store
 
 ```js
+// Store starts with defaults: { email: '', name: '' }
+
 // Set a single value
 UserStore.set('email', 'marty.mcfly@1985.com');
+// Store contains: { email: 'marty.mcfly@1985.com', name: '' }
 
 // Set multiple values
 UserStore.setProperties({name: 'Marty McFly', car: 'Delorean'});
+// Store contains: { email: 'marty.mcfly@1985.com', name: 'Marty McFly', car: 'Delorean' }
 
 // Reset and set multiple values
 UserStore.setAll({name: 'Doc Brown'});
+// Store contains: { email: '', name: 'Doc Brown' }
 
 // Reset values
 UserStore.reset();
+// Store contains: { email: '', name: '' }
 ```
 
 ###Getting store data
